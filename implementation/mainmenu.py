@@ -12,4 +12,9 @@ class MainMenu(IBaseMenu):
         pass
 
     def get_parting_message(self) -> str:
+        """
+            This method is explicitly used before quitting the program. 
+            :params:
+            :return: This method returns a string with a parting message.
+        """
         return f"Thank you for using {self.name}. Good bye!"
