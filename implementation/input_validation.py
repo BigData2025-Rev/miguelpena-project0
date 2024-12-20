@@ -1,5 +1,5 @@
 from interface.input_validation import IInputValidation
-from validation_type import ValidationType
+from implementation.validation_type import ValidationType
 
 class InputValidation(IInputValidation):
     def __init__(self, input: str, validation_type: int, **kwargs: any):
