@@ -1,6 +1,6 @@
 from implementation.mainmenu import MainMenu
 from implementation.mainmenu_state import MainMenuState
-from exceptions.invalidlogincredentials import InvalidLoginCredentials
+from custom_exceptions.invalid_login_credentials import InvalidLoginCredentials
 
 def main() -> None:
     """
