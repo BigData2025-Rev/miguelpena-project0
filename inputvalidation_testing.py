@@ -13,7 +13,7 @@ def test_validate_number_alpha_input():
     """
     with pytest.raises(InvalidNumberInput):
         input_validation = InputValidation('g', ValidationType.IsANumber)
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
     # assert result == False
 
 def test_validate_number_negative_input():
@@ -23,14 +23,23 @@ def test_validate_number_negative_input():
     """
     with pytest.raises(InvalidNumberInput):
         input_validation = InputValidation('-23', ValidationType.IsANumber)
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
+
+def test_validate_number_negative_float_input():
+    """
+        Must throw an exception if number is not a positive number, since something like 
+        100 - (-100) will result in bad behaviour in a banking/budgeting app.
+    """
+    with pytest.raises(InvalidNumberInput):
+        input_validation = InputValidation('-2.123', ValidationType.IsANumber)
+        result, value = input_validation.is_valid()
 
 def test_validate_number_integer_input():
     """
         If the number entry is positive and is a float or integer, then make sure validation is true.
     """
     input_validation = InputValidation('23', ValidationType.IsANumber)
-    result = input_validation.is_valid()
+    result, value = input_validation.is_valid()
     assert result == True
 
 def test_validate_number_float_input():
@@ -38,7 +47,7 @@ def test_validate_number_float_input():
         If the number entry is positive and is a float or integer, then make sure validation is true.
     """
     input_validation = InputValidation('23.50', ValidationType.IsANumber)
-    result = input_validation.is_valid()
+    result, value = input_validation.is_valid()
     assert result == True
 
 def test_validate_menuoption_invalid_number_input():
@@ -47,7 +56,7 @@ def test_validate_menuoption_invalid_number_input():
     """
     with pytest.raises(InvalidMenuSelection):
         input_validation = InputValidation('123', ValidationType.IsAMenuOption, valid_options = 'abc')
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
     # assert result == False
 
 def test_validate_menuoption_invalid_string_input():
@@ -56,7 +65,7 @@ def test_validate_menuoption_invalid_string_input():
     """
     with pytest.raises(InvalidMenuSelection):
         input_validation = InputValidation('Hello World!', ValidationType.IsAMenuOption, valid_options = 'abc')
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
     # assert result == False
 
 def test_validate_menuoption_lower_input():
@@ -64,7 +73,7 @@ def test_validate_menuoption_lower_input():
         Must be able to detect valid upper and lowercase inputs.
     """
     input_validation = InputValidation('a', ValidationType.IsAMenuOption, valid_options = 'abc')
-    result = input_validation.is_valid()
+    result, value = input_validation.is_valid()
     assert result == True
 
 def test_validate_menuoption_upper_input():
@@ -72,7 +81,7 @@ def test_validate_menuoption_upper_input():
         Must be able to detect valid upper and lowercase inputs.
     """
     input_validation = InputValidation('A', ValidationType.IsAMenuOption, valid_options = 'abc')
-    result = input_validation.is_valid()
+    result, value = input_validation.is_valid()
     assert result == True
 
 def test_validate_string_too_short_input():
@@ -81,7 +90,7 @@ def test_validate_string_too_short_input():
     """
     with pytest.raises(InvalidStringInput):
         input_validation = InputValidation('He', ValidationType.IsValidString, reject_short = True, can_contain_numbers = False)
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
 
 def test_validate_string_contains_numbers_input():
     """
@@ -89,12 +98,12 @@ def test_validate_string_contains_numbers_input():
     """
     with pytest.raises(InvalidStringInput):
         input_validation = InputValidation('123345', ValidationType.IsValidString, reject_short = True, can_contain_numbers = False)
-        result = input_validation.is_valid()
+        result, value = input_validation.is_valid()
 
 def test_validate_string_valid_input():
     """
         Must return true if all conditions are met.
     """
     input_validation = InputValidation('Hamburger', ValidationType.IsValidString, reject_short = True, can_contain_numbers = False)
-    result = input_validation.is_valid()
+    result, value = input_validation.is_valid()
     assert result == True
