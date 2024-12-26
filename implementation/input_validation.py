@@ -14,7 +14,7 @@ class InputValidation(IInputValidation):
         """
         self.input = input
         self.validation_type = validation_type
-        self.validation_criteria = kwargs
+        self.validation_criteria = dict(kwargs)
     
     def check_if_float(self) -> bool:
         try: 

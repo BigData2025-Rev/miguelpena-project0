@@ -1,5 +1,6 @@
 from enum import Enum
 
 class MainMenuState(Enum):
-    WAITING = 1
-    CLOSING = 2
+    INITIAL = 1
+    SUBSTATE = 2
+    CLOSING = 3

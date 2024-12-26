@@ -1,7 +1,7 @@
 # Project0 - BudgetBuddy
 
 A Python CLI (Command Line Interface) application that saves and reads data from a JSON file. It is a budgeting app that keeps track of spenditure and displays historical data. 
-The user is prompted to create a profile and provide a monthly income value. Every time the user spends money, they are encouraged to enter it into this application and give it a catergory.
+The user is prompted to create a profile and provide a monthly income value. Every time the user spends money, they are encouraged to enter it into this application and give it a category.
 The application then displays their largest category and how they spend.   
 
 ## Application Requirements
