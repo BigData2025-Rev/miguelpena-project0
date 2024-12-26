@@ -1,14 +1,24 @@
+from implementation.initial_submenu import InitialSubMenu
+from submenu_state import SubMenuState
 from mainmenu_state import MainMenuState
-from interface.base_menu import IBaseMenu
+from interface.menu_interface import IMenu
 
-class MainMenu(IBaseMenu):
+class MainMenu(IMenu):
     def __init__(self, name):
         self.current_state = MainMenuState.INITIAL
         self.current_submenu = None
         self.name = name
 
-    def run() -> None:
-        pass
+    def run(self) -> None:
+        match(self.current_state):
+            case MainMenuState.INITIAL:
+                self.current_submenu = InitialSubMenu(self.name)
+                self.current_submenu.run()
+                self.current_state = MainMenuState.SUBSTATE
+            case MainMenuState.SUBSTATE:
+                self.wait_for_submenu()
+            case _:
+                print(self.get_parting_message())
 
     def set_state(self, state: int) -> None:
         self.current_state = state
@@ -19,11 +29,14 @@ class MainMenu(IBaseMenu):
     def reset_state(self) -> None:
         self.current_state = MainMenuState.INITIAL
 
-    def reset_date(self) -> None:
-        self.submenu_dict.clear()
+    def reset_data(self) -> None:
+        self.current_submenu = None
 
-    def display_menu(self) -> None:
-        pass
+    def wait_for_submenu(self) -> None:
+        self.current_submenu.run()
+        if self.current_submenu.get_state() == SubMenuState.CLOSING:
+            self.reset_state()
+            self.reset_data()
 
     def get_parting_message(self) -> str:
         """

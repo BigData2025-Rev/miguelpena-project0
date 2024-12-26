@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class IBaseMenu(ABC):
+class IMenu(ABC):
     @abstractmethod
     def run(self) -> None:
         """
@@ -13,7 +13,7 @@ class IBaseMenu(ABC):
         pass
 
     @abstractmethod
-    def set_state(state: int) -> None:
+    def set_state(self, state: int) -> None:
         """
             Encapsulation method for setting the current state of the menu object.
 
@@ -23,7 +23,7 @@ class IBaseMenu(ABC):
         pass
 
     @abstractmethod
-    def get_state() -> int:
+    def get_state(self) -> int:
         """
             Encapsulation method for getting the current state of the menu object.
 
@@ -33,7 +33,7 @@ class IBaseMenu(ABC):
         pass
 
     @abstractmethod
-    def display_menu(self) -> None:
+    def wait_for_submenu(self) -> None:
         """
             Method for displaying menu options and listening for user input.
             :params:

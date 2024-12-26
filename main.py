@@ -14,7 +14,6 @@ def main() -> None:
         except (InvalidLoginCredentials) as e:
             print(e.message)
 
-    print(menu.get_parting_message())
 
 if __name__ == "__main__":
     main()
