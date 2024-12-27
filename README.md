@@ -14,7 +14,6 @@ The application then displays their largest category and how they spend.
 
 ## Tech Stack
 - Python
-    - Flask Module
     - CSV or JSON Module
     - Matplotlib Module
     - Pandas Module
