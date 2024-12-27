@@ -8,7 +8,7 @@ def main() -> None:
         and run the menu logic as needed.  
     """
     menu: MainMenu = MainMenu("BudgetBuddy")
-    while (MainMenu.get_state() != MainMenuState.CLOSING):
+    while (menu.get_state() != MainMenuState.CLOSING):
         try:
             menu.run()
         except (InvalidLoginCredentials) as e:

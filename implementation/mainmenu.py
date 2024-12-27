@@ -1,6 +1,6 @@
 from implementation.initial_submenu import InitialSubMenu
-from submenu_state import SubMenuState
-from mainmenu_state import MainMenuState
+from implementation.submenu_state import SubMenuState
+from implementation.mainmenu_state import MainMenuState
 from interface.menu_interface import IMenu
 
 class MainMenu(IMenu):

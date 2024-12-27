@@ -3,7 +3,7 @@ from implementation.input_validation import InputValidation
 from implementation.validation_type import ValidationType
 from custom_exceptions.invalid_menu_selection import InvalidMenuSelection
 
-from base_submenu import BaseSubmenu
+from implementation.base_submenu import BaseSubmenu
 from implementation.submenu_state import SubMenuState
 
 class InitialSubMenu(BaseSubmenu):
