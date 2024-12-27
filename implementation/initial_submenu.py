@@ -22,15 +22,10 @@ class InitialSubMenu(BaseSubmenu):
 
     def display_submenu_options(self):
         
-        print(f"""
-            
-            Welcome to {self.name}!
-            What would you lke to do?
-
-            """)
+        print(f"\n\tWelcome to {self.name}!\n\tWhat would you lke to do?\n")
         
         for index, option in enumerate(self.submenu_options):
-            print(f'\n {string.ascii_uppercase[index]}. {option}')
+            print(f'\t{string.ascii_uppercase[index]}. {option}')
 
     def get_valid_options(self) -> str:
         return string.ascii_uppercase[:len(self.submenu_options)]

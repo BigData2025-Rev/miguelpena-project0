@@ -11,7 +11,7 @@ class BaseSubmenu(ISubMenu):
 
         while not input_valid:
             self.display_submenu_options()
-            user_input = input('>>>')
+            user_input = input('\n>>>')
             valid_options = self.get_valid_options()
             validation = InputValidation(user_input, ValidationType.IsAMenuOption, valid_options=valid_options)
             try:
