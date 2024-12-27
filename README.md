@@ -14,7 +14,13 @@ The application then displays their largest category and how they spend.
 
 ## Tech Stack
 - Python
-    - CSV or JSON Module
-    - Matplotlib Module
-    - Pandas Module
+    - BCrypt Module -> For password hashing.
+        - pip install bcrypt
+    - Maskpass Module -> For password hiding.
+        - pip install maskpass
+    - CSV or JSON Module -> For saving/loading data
+    - Matplotlib Module -> For displaying data
+        - pip install matplotlib
+    - Pandas Module -> For organization of data
+        - pip install pandas
 - Git (+ Github)
