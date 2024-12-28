@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from implementation.submenu_state import SubMenuState
+from implementation.enum_classes.submenu_state import SubMenuState
 
 class ISubMenu(ABC):
     def run(self) -> None:

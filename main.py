@@ -1,5 +1,5 @@
-from implementation.mainmenu import MainMenu
-from implementation.mainmenu_state import MainMenuState
+from implementation.main_menu import MainMenu
+from implementation.enum_classes.mainmenu_state import MainMenuState
 from custom_exceptions.invalid_login_credentials import InvalidLoginCredentials
 
 def main() -> None:

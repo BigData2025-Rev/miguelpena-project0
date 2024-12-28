@@ -1,6 +1,6 @@
 import pytest
 from implementation.input_validation import InputValidation
-from implementation.validation_type import ValidationType
+from implementation.enum_classes.validation_type import ValidationType
 from custom_exceptions.invalid_number_input import InvalidNumberInput
 from custom_exceptions.invalid_menu_selection import InvalidMenuSelection
 from custom_exceptions.invalid_string_input import InvalidStringInput

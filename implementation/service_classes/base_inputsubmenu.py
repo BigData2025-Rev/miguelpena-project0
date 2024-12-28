@@ -3,8 +3,8 @@ from custom_exceptions.invalid_string_input import InvalidStringInput
 from custom_exceptions.invalid_number_input import InvalidNumberInput
 from interface.submenu_interface import ISubMenu
 from implementation.input_validation import InputValidation
-from implementation.validation_type import ValidationType
-from implementation.submenu_state import SubMenuState
+from implementation.enum_classes.validation_type import ValidationType
+from implementation.enum_classes.submenu_state import SubMenuState
 
 class BaseInputSubmenu(ISubMenu):
 

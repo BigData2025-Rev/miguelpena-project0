@@ -1,6 +1,6 @@
-from implementation.initial_submenu import InitialSubMenu
-from implementation.submenu_state import SubMenuState
-from implementation.mainmenu_state import MainMenuState
+from implementation.service_classes.initial_submenu import InitialSubMenu
+from implementation.enum_classes.submenu_state import SubMenuState
+from implementation.enum_classes.mainmenu_state import MainMenuState
 from interface.menu_interface import IMenu
 
 class MainMenu(IMenu):

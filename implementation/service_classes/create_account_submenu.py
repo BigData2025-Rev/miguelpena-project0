@@ -1,10 +1,10 @@
 import string
 from implementation.input_validation import InputValidation
-from implementation.validation_type import ValidationType
+from implementation.enum_classes.validation_type import ValidationType
 from custom_exceptions.invalid_menu_selection import InvalidMenuSelection
 
-from implementation.base_submenu import BaseSubmenu
-from implementation.submenu_state import SubMenuState
+from implementation.service_classes.base_submenu import BaseSubmenu
+from implementation.enum_classes.submenu_state import SubMenuState
 
 class CreateAccountSubmenu(BaseSubmenu):
     def __init__(self):
