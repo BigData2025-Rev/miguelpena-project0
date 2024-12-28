@@ -7,24 +7,17 @@ from implementation.base_submenu import BaseSubmenu
 from implementation.submenu_state import SubMenuState
 
 class CreateAccountSubmenu(BaseSubmenu):
-    def __init__(self, name: str):
+    def __init__(self):
         self.current_state = SubMenuState.INITIAL
-        self.submenu_options = ['Create Account', 'Login', 'Close Application']
-        self.name = name
-    
-    def run(self):
-        match(self.current_state):
-            case SubMenuState.INITIAL:
-                self.display()
-            case _:
-                print('Closing...')
+        self.submenu_options = [('Username: ', ValidationType.IsValidString), ('Password: ', ValidationType.IsValidString), ('Renter Password: ', ValidationType.IsValidString), ('Monthly Income: ', ValidationType.IsANumber)]
 
-    def display_submenu_options(self):
+    def display_submenu(self):
         
-        print(f"\n\tWelcome to {self.name}!\n\tWhat would you lke to do?\n")
+        print(f"\n\tCreating Account\n\tPlease enter the following:\n")
         
-        for index, option in enumerate(self.submenu_options):
-            print(f'\t{string.ascii_uppercase[index]}. {option}')
+        for current, option in enumerate(self.submenu_options):
+            print(f'\t{option[0]}', end='')
+            yield current
 
-    def get_valid_options(self) -> str:
+    def get_valid(self) -> str:
         return string.ascii_uppercase[:len(self.submenu_options)]

@@ -1,18 +1,24 @@
 from abc import ABC, abstractmethod
+from implementation.submenu_state import SubMenuState
 
 class ISubMenu(ABC):
-    @abstractmethod
     def run(self) -> None:
-        pass
+        match(self.current_state):
+            case SubMenuState.INITIAL:
+                self.display()
+            case _:
+                print('Closing...')
     
     @abstractmethod
     def display(self) -> None:
         pass
 
     @abstractmethod
-    def display_submenu_options(self) -> None:
+    def get_state(self) -> int:
         pass
     
     @abstractmethod
-    def get_valid_options(self) -> str:
+    def display_submenu(self) -> None:
         pass
+    
+   
