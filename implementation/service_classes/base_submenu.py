@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from custom_exceptions.invalid_menu_selection import InvalidMenuSelection
 from interface.submenu_interface import ISubMenu
-from implementation.input_validation import InputValidation
+from implementation.utility_classes.input_validation import InputValidation
 from implementation.enum_classes.validation_type import ValidationType
 from implementation.enum_classes.submenu_state import SubMenuState
 
