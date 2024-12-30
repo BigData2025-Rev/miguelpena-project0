@@ -1,26 +1,30 @@
-# Project0 - BudgetBuddy
+# project0-cli
 
-A Python CLI (Command Line Interface) application that saves and reads data from a JSON file. It is a budgeting app that keeps track of spenditure and displays historical data. 
-The user is prompted to create a profile and provide a monthly income value. Every time the user spends money, they are encouraged to enter it into this application and give it a category.
-The application then displays their largest category and how they spend.   
+### Project: Blood Glucose and BMI Tracking App 
 
-## Application Requirements
-- CLI where users can interact with the application while it is running
-- Application should read in data from a file and be displayed in some way
-- Application should write data to a file
-- All user input should be validated (program should not end with exceptions based on user input)
-- Program must follow OOP design (classes/objects)
-- Application should be uploaded to a GitHub repository
+## Background
+
+Type Two diabetes is becoming an increasing problem in the United States, where most people won't know they have it until it starts to present symptoms.  
+This type of diabetes arises from the body's inability to process sugar in the blood, which can cause it to accumulate over time and damage tissues like the retina, arms, legs, inhibit the immune system, impede healing from an injury, among others. 
+Treatment for Type Two Diabetes involves weight loss, excercise, and tracking blood glucose concentrations.
+
+The body mass index (BMI), while not perfect, can provide a decent guideline for weight loss. It is defined as the user's mass (in kilograms) divided by height squared (in meters).
+The blood glucose concentration (BGC), can provide some insight into the user's ability to process sugar. This is usually measured with a meter, prescribed by a doctor. 
+
+This application will provide a command line interface that will make it easy to track the user's BGC and BMI over time. 
+
+## Project Requirements
+- CLI will ask user to choose from a number of options: (C)reate profile (L)oad profile (S)how history, (R)eport BGC and BMI, and (K)lose the application.
+- The application will read a CSV file. It will need to read BGC and BMI and display a history chart using matplotlib.
+- The application will write to the same CSV file, and append to it the user's recently reported BGC and BMI. 
+- User input shall be validated by first checking to see if they selected an appropriate menu option, and then when prompting for BGC, weight, and height. The appropriate units are used, as well as the typing. 
+- This program will use classes to represent BGC and BMI, and their respective data validation methods. A file handling class will take in BGC and BMI objects, and write the data accordingly. Exception classes will be used to notify the user that something went wrong with their input, and they must try again. 
+-  This project will be uploaded to the repository miguelpena-project0 under the username miguelpena-bigdata-dev
 
 ## Tech Stack
-- Python
-    - BCrypt Module -> For password hashing.
-        - pip install bcrypt
-    - Maskpass Module -> For password hiding.
-        - pip install maskpass
-    - CSV or JSON Module -> For saving/loading data
-    - Matplotlib Module -> For displaying data
-        - pip install matplotlib
-    - Pandas Module -> For organization of data
-        - pip install pandas
-- Git (+ Github)
+- Python 3.x
+    - matplotlib
+    - csv
+    - exceptions
+- Git (+ Github) 
+

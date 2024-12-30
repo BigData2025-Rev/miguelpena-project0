@@ -1,19 +1,23 @@
-from implementation.main_menu import MainMenu
-from implementation.enum_classes.mainmenu_state import MainMenuState
-from custom_exceptions.invalid_login_credentials import InvalidLoginCredentials
+from custom_exceptions.menu_selection_invalid import MenuSelectionInvalidException
+from custom_exceptions.invalid_history_selection import InvalidHistorySelectionException
+from custom_exceptions.invalid_profile import InvalidProfileException
+from custom_exceptions.invalid_bgc import InvalidBGCException
+from custom_exceptions.invalid_bmi import InvalidBMIException
+from custom_exceptions.data_missing import DataMissingException
+from implementation.main_menu import MainMenu, menu_state
 
 def main() -> None:
     """
-        Program entry point, should handle exceptions at the highest level,
-        and run the menu logic as needed.  
+        Program entry point, should handle exceptions at the highest level, and run the menu logic as needed.
+
     """
-    menu: MainMenu = MainMenu("BudgetBuddy")
-    while (menu.get_state() != MainMenuState.CLOSING):
+    menu_object: MainMenu = MainMenu()
+
+    while menu_object.get_state() != menu_state.CLOSING_STATE:
         try:
-            menu.run()
-        except (InvalidLoginCredentials) as e:
+            menu_object.run()
+        except (MenuSelectionInvalidException, InvalidBMIException, InvalidBGCException, InvalidProfileException, DataMissingException, InvalidHistorySelectionException) as e:
             print(e.message)
-
-
+    print("Closing tracker. Have a nice day :)")
 if __name__ == "__main__":
     main()
