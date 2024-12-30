@@ -11,6 +11,15 @@ class IMenu(ABC):
             :return: 
         """
         pass
+    
+    @abstractmethod
+    def get_name(self) -> str:
+        """
+            This method is a getter for the name property.
+            :params: None
+            :return: string representation of application name.
+        """
+        pass
 
     @abstractmethod
     def set_state(self, state: int) -> None:

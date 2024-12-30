@@ -1,5 +1,5 @@
 import re
-from interface.input_validation import IInputValidation
+from interface.input_validation_interface import IInputValidation
 from implementation.enum_classes.validation_type import ValidationType
 
 from custom_exceptions.invalid_number_input import InvalidNumberInput

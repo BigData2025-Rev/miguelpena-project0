@@ -1,15 +1,18 @@
 import string
-from implementation.utility_classes.input_validation import InputValidation
 from implementation.enum_classes.validation_type import ValidationType
-from custom_exceptions.invalid_menu_selection import InvalidMenuSelection
+from implementation.data_access_classes.account_dao import AccountDAO
 
-from implementation.service_classes.base_submenu import BaseSubmenu
+from implementation.menu_state_classes.base_submenu import BaseSubmenu
 from implementation.enum_classes.submenu_state import SubMenuState
 
-class CreateAccountSubmenu(BaseSubmenu):
+class AccountService(BaseSubmenu):
     def __init__(self):
+        self.account_dao = AccountDAO()
         self.current_state = SubMenuState.INITIAL
-        self.submenu_options = [('Username: ', ValidationType.IsValidString), ('Password: ', ValidationType.IsValidString), ('Renter Password: ', ValidationType.IsValidString), ('Monthly Income: ', ValidationType.IsANumber)]
+        self.submenu_options = [('Username: ', ValidationType.IsValidString),
+                                ('Password: ', ValidationType.IsValidString), 
+                                ('Renter Password: ', ValidationType.IsValidString), 
+                                ('Monthly Income: ', ValidationType.IsANumber)]
 
     def display_submenu(self):
         
